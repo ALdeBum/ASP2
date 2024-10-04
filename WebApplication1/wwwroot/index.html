@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерпретатор чисел</title>
+    <script>
+        async function sendRequest() {
+            const numberInput = document.getElementById('numberInput').value;
+            const response = await fetch(`/api/number?number=${numberInput}`);
+            const result = await response.text();
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Интерпретатор чисел</h1>
+    <input type="number" id="numberInput" min="1" max="100000" placeholder="Введите число от 1 до 100000">
+    <button onclick="sendRequest()">Отправить</button>
+    <p id="result"></p>
+</body>
+</html>
